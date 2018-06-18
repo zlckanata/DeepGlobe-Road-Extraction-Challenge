@@ -33,7 +33,7 @@ data_loader = torch.utils.data.DataLoader(
     shuffle=True,
     num_workers=4)
 
-mylog = open('logs/'+NAME,'w')
+mylog = open('logs/'+NAME+'.log','w')
 tic = time()
 no_optim = 0
 total_epoch = 300
