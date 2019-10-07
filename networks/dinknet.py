@@ -135,7 +135,7 @@ class DinkNet34_less_pool(nn.Module):
         out = self.finalrelu2(out)
         out = self.finalconv3(out)
 
-        return F.sigmoid(out)
+        return torch.sigmoid(out)
     
 class DinkNet34(nn.Module):
     def __init__(self, num_classes=1, num_channels=3):
@@ -191,7 +191,7 @@ class DinkNet34(nn.Module):
         out = self.finalrelu2(out)
         out = self.finalconv3(out)
 
-        return F.sigmoid(out)
+        return torch.sigmoid(out)
 
 class DinkNet50(nn.Module):
     def __init__(self, num_classes=1):
@@ -246,7 +246,7 @@ class DinkNet50(nn.Module):
         out = self.finalrelu2(out)
         out = self.finalconv3(out)
 
-        return F.sigmoid(out)
+        return torch.sigmoid(out)
     
 class DinkNet101(nn.Module):
     def __init__(self, num_classes=1):
@@ -301,7 +301,7 @@ class DinkNet101(nn.Module):
         out = self.finalrelu2(out)
         out = self.finalconv3(out)
 
-        return F.sigmoid(out)
+        return torch.sigmoid(out)
 
 class LinkNet34(nn.Module):
     def __init__(self, num_classes=1):
@@ -351,4 +351,4 @@ class LinkNet34(nn.Module):
         out = self.finalrelu2(out)
         out = self.finalconv3(out)
 
-        return F.sigmoid(out)
+        return torch.sigmoid(out)
