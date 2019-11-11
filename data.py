@@ -129,4 +129,4 @@ class ImageFolder(data.Dataset):
         return img, mask
 
     def __len__(self):
-        return len(self.ids)
+        return len(list(self.ids))
