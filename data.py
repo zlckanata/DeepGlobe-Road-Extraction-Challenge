@@ -129,5 +129,4 @@ class ImageFolder(data.Dataset):
         return img, mask
 
     def __len__(self):
-        print('length is ', len(list(self.ids)))
         return len(self.ids)
