@@ -130,4 +130,4 @@ class ImageFolder(data.Dataset):
 
     def __len__(self):
         print('length is ', len(list(self.ids)))
-        return len(list(self.ids))
+        return len(self.ids)
