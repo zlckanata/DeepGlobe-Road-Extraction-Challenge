@@ -21,7 +21,7 @@ ROOT = '/content/DeepGlobe-Road-Extraction-Challenge/dataset/train/'
 imagelist = filter(lambda x: x.find('sat')!=-1, os.listdir(ROOT))
 trainlist = map(lambda x: x[:-8], imagelist)
 NAME = 'log01_dink34'
-BATCHSIZE_PER_CARD = 4
+BATCHSIZE_PER_CARD = 1
 
 solver = MyFrame(DinkNet34, dice_bce_loss, 2e-4)
 batchsize = torch.cuda.device_count() * BATCHSIZE_PER_CARD
