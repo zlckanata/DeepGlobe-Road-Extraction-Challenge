@@ -63,7 +63,7 @@ for epoch in range(1, total_epoch + 1):
         solver.save('weights/'+NAME+'.th')
     if no_optim > 6:
         print('early stop at %d epoch' % epoch, file = mylog)
-        print(early stop at %d epoch' % epoch)
+        print('early stop at %d epoch' % epoch)
         break
     if no_optim > 3:
         if solver.old_lr < 5e-7:
