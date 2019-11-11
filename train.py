@@ -19,7 +19,7 @@ from data import ImageFolder
 SHAPE = (1024,1024)
 ROOT = '/content/DeepGlobe-Road-Extraction-Challenge/dataset/train/'
 imagelist = filter(lambda x: x.find('sat')!=-1, os.listdir(ROOT))
-trainlist = map(lambda x: x[:-8], imagelist)
+trainlist = [x[:-8] for x in imagelist] #    map(lambda x: x[:-8], imagelist)
 NAME = 'log01_dink34'
 BATCHSIZE_PER_CARD = 4
 
