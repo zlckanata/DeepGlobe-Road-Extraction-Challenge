@@ -17,7 +17,7 @@ from loss import dice_bce_loss
 from data import ImageFolder
 
 SHAPE = (1024,1024)
-ROOT = 'dataset/train/'
+ROOT = '/content/DeepGlobe-Road-Extraction-Challenge/dataset/train/'
 imagelist = filter(lambda x: x.find('sat')!=-1, os.listdir(ROOT))
 trainlist = map(lambda x: x[:-8], imagelist)
 NAME = 'log01_dink34'
