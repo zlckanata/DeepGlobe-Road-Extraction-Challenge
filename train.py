@@ -46,14 +46,14 @@ for epoch in range(1, total_epoch + 1):
         train_loss = solver.optimize()
         train_epoch_loss += train_loss
     train_epoch_loss /= len(data_loader_iter)
-    print >> mylog, '********'
-    print >> mylog, 'epoch:',epoch,'    time:',int(time()-tic)
-    print >> mylog, 'train_loss:',train_epoch_loss
-    print >> mylog, 'SHAPE:',SHAPE
-    print '********'
-    print 'epoch:',epoch,'    time:',int(time()-tic)
-    print 'train_loss:',train_epoch_loss
-    print 'SHAPE:',SHAPE
+    print('********', file = mylog)
+    print('epoch:',epoch,'    time:',int(time()-tic), file = mylog)
+    print('train_loss:',train_epoch_loss, file = mylog)
+    print( 'SHAPE:',SHAPE, file = mylog)
+    print('********')
+    print('epoch:',epoch,'    time:',int(time()-tic))
+    print('train_loss:',train_epoch_loss)
+    print('SHAPE:',SHAPE)
     
     if train_epoch_loss >= train_epoch_best_loss:
         no_optim += 1
@@ -62,8 +62,8 @@ for epoch in range(1, total_epoch + 1):
         train_epoch_best_loss = train_epoch_loss
         solver.save('weights/'+NAME+'.th')
     if no_optim > 6:
-        print >> mylog, 'early stop at %d epoch' % epoch
-        print 'early stop at %d epoch' % epoch
+        print('early stop at %d epoch' % epoch, file = mylog)
+        print(early stop at %d epoch' % epoch)
         break
     if no_optim > 3:
         if solver.old_lr < 5e-7:
@@ -72,6 +72,6 @@ for epoch in range(1, total_epoch + 1):
         solver.update_lr(5.0, factor = True, mylog = mylog)
     mylog.flush()
     
-print >> mylog, 'Finish!'
-print 'Finish!'
+print('Finish!', file = mylog)
+print('Finish!')
 mylog.close()
