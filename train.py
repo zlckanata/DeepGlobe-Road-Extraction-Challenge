@@ -12,7 +12,7 @@ from time import time
 from networks.unet import Unet
 from networks.dunet import Dunet
 from networks.dinknet import LinkNet34, DinkNet34, DinkNet50, DinkNet101, DinkNet34_less_pool
-from framework import MyFrame
+from framework import MyFrame, load, save
 from loss import dice_bce_loss
 from data import ImageFolder
 
@@ -39,6 +39,9 @@ no_optim = 0
 total_epoch = 300
 train_epoch_best_loss = 100
 for epoch in range(1, total_epoch + 1):
+    if(epoch %10 == 0):
+        save(/content/gdrive/My\ Drive/)
+        load(/content/gdrive/My\ Drive/)
     data_loader_iter = iter(data_loader)
     train_epoch_loss = 0
     for img, mask in data_loader_iter:
