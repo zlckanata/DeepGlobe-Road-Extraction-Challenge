@@ -22,8 +22,8 @@ imagelist = filter(lambda x: x.find('sat')!=-1, os.listdir(ROOT))
 trainlist = [x[:-8] for x in imagelist] #    map(lambda x: x[:-8], imagelist)
 NAME = 'log01_dink34'
 BATCHSIZE_PER_CARD = 4
-
 solver = MyFrame(DinkNet34, dice_bce_loss, 2e-4)
+
 batchsize = torch.cuda.device_count() * BATCHSIZE_PER_CARD
 
 dataset = ImageFolder(trainlist, ROOT)
@@ -38,6 +38,7 @@ tic = time()
 no_optim = 0
 total_epoch = 300
 train_epoch_best_loss = 100
+solver.load("/content/gdrive/My Drive/model.pt")
 for epoch in range(1, total_epoch + 1):
     if(epoch %10 == 0):
         solver.save("/content/gdrive/My Drive/model.pt")
