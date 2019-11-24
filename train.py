@@ -45,8 +45,7 @@ print(argumentList)
 if(len(argumentList) == 2):
     path = argumentList[1]
     checkpoint = torch.load(path)
-    solver.load_state_dict(checkpoint['model_state_dict'])
-    solver.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    solver.load(path)
     startt = checkpoint['epoch']
     losss = checkpoint['loss']
 for epoch in range(startt, total_epoch + 1):
@@ -69,11 +68,11 @@ for epoch in range(startt, total_epoch + 1):
     
     if(epoch % 10 == 0):
     	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
-    	checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
-    	solver.load_state_dict(checkpoint['model_state_dict'])
-    	optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-    	epoch = checkpoint['epoch']
-    	train_epoch_loss = checkpoint['loss']
+    	#checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
+    	#solver.load_state_dict(checkpoint['model_state_dict'])
+    	#optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    	#epoch = checkpoint['epoch']
+    	#train_epoch_loss = checkpoint['loss']
     	
     if train_epoch_loss >= train_epoch_best_loss:
         no_optim += 1
