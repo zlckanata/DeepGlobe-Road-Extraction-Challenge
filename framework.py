@@ -64,7 +64,10 @@ class MyFrame():
         loss.backward()
         self.optimizer.step()
         return loss.data
-        
+    
+    def save(self, path):
+        torch.save(self.net.state_dict(), path)    
+	
     def save(self, path, epoch,losss):
         torch.save({
 		'epoch' : epoch,
