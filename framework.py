@@ -73,6 +73,7 @@ class MyFrame():
 		'loss' : losss}, path)
         
     def load(self, path):
+	    checkpoint = torch.load(path)
 	    self.net.load_state_dict(checkpoint['model_state_dict'])
 	    self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     
