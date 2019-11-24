@@ -71,7 +71,7 @@ for epoch in range(startt, total_epoch + 1):
     	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
     	checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
     	solver.load_state_dict(checkpoint['model_state_dict'])
-    	solver.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    	optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     	epoch = checkpoint['epoch']
     	train_epoch_loss = checkpoint['loss']
     	
