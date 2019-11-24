@@ -73,8 +73,8 @@ class MyFrame():
 		'loss' : losss}, path)
         
     def load(self, path):
-	self.net.load_state_dict(checkpoint['model_state_dict'])
-	self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+	    self.net.load_state_dict(checkpoint['model_state_dict'])
+	    self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     
     def update_lr(self, new_lr, mylog, factor=False):
         if factor:
