@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.utils.data as data
 from torch.autograd import Variable as V
+import sys 
+
 
 import cv2
 import os
@@ -32,17 +34,30 @@ data_loader = torch.utils.data.DataLoader(
     batch_size=batchsize,
     shuffle=True,
     num_workers=4)
-
+argumentList = sys.argv 
 mylog = open('logs/'+NAME+'.log','w')
 tic = time()
 no_optim = 0
 total_epoch = 300
 train_epoch_best_loss = 100
-solver.load("/content/gdrive/My Drive/model.pt")
-for epoch in range(1, total_epoch + 1):
+startt = 0
+print(argumentList)
+if(len(argumentList) == 2):
+    path = argumentList[1]
+    checkpoint = torch.load(path)
+    solver.load_state_dict(checkpoint['model_state_dict'])
+    solver.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    startt = checkpoint['epoch']
+    losss = checkpoint['loss']
+for epoch in range(startt, total_epoch + 1):
     if(epoch %10 == 0):
-        solver.save("/content/gdrive/My Drive/model.pt")
-        solver.load("/content/gdrive/My Drive/model.pt")
+        solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
+        checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
+	solver.load_state_dict(checkpoint['model_state_dict'])
+	solver.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+	epoch = checkpoint['epoch']
+	train_epoch_loss = checkpoint['loss']
+	#solver.load("/content/gdrive/My Drive/model.pt", epoch)
     data_loader_iter = iter(data_loader)
     train_epoch_loss = 0
     for img, mask in data_loader_iter:

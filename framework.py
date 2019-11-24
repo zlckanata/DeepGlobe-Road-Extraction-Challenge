@@ -65,11 +65,16 @@ class MyFrame():
         self.optimizer.step()
         return loss.data
         
-    def save(self, path):
-        torch.save(self.net.state_dict(), path)
+    def save(self, path, epoch,losss):
+        torch.save({
+		'epoch' : epoch,
+		'model_state_dict' = self.net.state_dict(),
+		'optimizer_state_dict' = self.optimizer.state_dict(),
+		'loss' : losss}, path)
         
     def load(self, path):
-        self.net.load_state_dict(torch.load(path))
+	self.net.load_state_dict(checkpoint['model_state_dict'])
+	self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     
     def update_lr(self, new_lr, mylog, factor=False):
         if factor:
