@@ -68,8 +68,8 @@ class MyFrame():
     def save(self, path, epoch,losss):
         torch.save({
 		'epoch' : epoch,
-		'model_state_dict' = self.net.state_dict(),
-		'optimizer_state_dict' = self.optimizer.state_dict(),
+		'model_state_dict' : self.net.state_dict(),
+		'optimizer_state_dict' : self.optimizer.state_dict(),
 		'loss' : losss}, path)
         
     def load(self, path):
