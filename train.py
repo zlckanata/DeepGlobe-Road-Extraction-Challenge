@@ -50,13 +50,6 @@ if(len(argumentList) == 2):
     startt = checkpoint['epoch']
     losss = checkpoint['loss']
 for epoch in range(startt, total_epoch + 1):
-    if(epoch % 10 == 0):
-    	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
-    	checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
-    	solver.load_state_dict(checkpoint['model_state_dict'])
-    	solver.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-    	epoch = checkpoint['epoch']
-    	train_epoch_loss = checkpoint['loss']
 	#solver.load("/content/gdrive/My Drive/model.pt", epoch)
     data_loader_iter = iter(data_loader)
     train_epoch_loss = 0
@@ -74,6 +67,14 @@ for epoch in range(startt, total_epoch + 1):
     print('train_loss:',train_epoch_loss)
     print('SHAPE:',SHAPE)
     
+    if(epoch % 10 == 0):
+    	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
+    	checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
+    	solver.load_state_dict(checkpoint['model_state_dict'])
+    	solver.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    	epoch = checkpoint['epoch']
+    	train_epoch_loss = checkpoint['loss']
+    	
     if train_epoch_loss >= train_epoch_best_loss:
         no_optim += 1
     else:
