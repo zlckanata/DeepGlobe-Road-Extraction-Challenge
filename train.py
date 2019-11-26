@@ -66,7 +66,7 @@ for epoch in range(startt, total_epoch + 1):
     print('train_loss:',train_epoch_loss)
     print('SHAPE:',SHAPE)
     
-    if(epoch % 10 == 0):
+    if(epoch % 2 == 0):
     	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
     	#checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
     	#solver.load_state_dict(checkpoint['model_state_dict'])
