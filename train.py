@@ -48,7 +48,7 @@ if(len(argumentList) == 2):
     solver.load(path)
     startt = checkpoint['epoch']
     losss = checkpoint['loss']
-solver.save('/content/gdrive/My Drive/weights/'+NAME+'.th')
+solver.savee('/content/gdrive/My Drive/weights/'+NAME+'.th')
 for epoch in range(startt, total_epoch + 1):
 	#solver.load("/content/gdrive/My Drive/model.pt", epoch)
     data_loader_iter = iter(data_loader)
