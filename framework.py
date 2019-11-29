@@ -66,7 +66,7 @@ class MyFrame():
         return loss.data
     
     def savee(self, path):
-        torch.save(self.net.state_dict(), path)    
+        torch.save(self.net, path)    
 	
     def save(self, path, epoch,losss):
         torch.save({
