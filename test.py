@@ -134,11 +134,11 @@ class TTAFrame():
     def load(self, path):
         self.net.load_state_dict(torch.load(path))
         
-#source = 'dataset/test/'
-source = 'dataset/valid/'
+source = 'dataset/test/'
+# source = 'dataset/valid/'
 val = os.listdir(source)
 solver = TTAFrame(DinkNet34)
-solver.load('weights/log01_dink34.th')
+solver.load('/content/gdrive/My\ Drive/model.pt')
 tic = time()
 target = 'submits/log01_dink34/'
 os.mkdir(target)
