@@ -69,8 +69,8 @@ for epoch in range(startt, total_epoch + 1):
     
     if(epoch % 1 == 0):
         #solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
-        solver.savee("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
-        solver.savee("/content/gdrive/My Drive/weights/"+NAME+".th", epoch,train_epoch_loss)
+        solver.savee("/content/gdrive/My Drive/model.pt")
+        solver.savee("/content/gdrive/My Drive/weights/"+NAME+".th")
         #checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
         #solver.load_state_dict(checkpoint['model_state_dict'])
         #optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
