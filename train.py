@@ -48,6 +48,7 @@ if(len(argumentList) == 2):
     solver.load(path)
     startt = checkpoint['epoch']
     losss = checkpoint['loss']
+solver.save('/content/gdrive/My Drive/weights/'+NAME+'.th')
 for epoch in range(startt, total_epoch + 1):
 	#solver.load("/content/gdrive/My Drive/model.pt", epoch)
     data_loader_iter = iter(data_loader)
@@ -66,9 +67,10 @@ for epoch in range(startt, total_epoch + 1):
     print('train_loss:',train_epoch_loss)
     print('SHAPE:',SHAPE)
     
-    if(epoch % 2 == 0):
+    if(epoch % 1 == 0):
 #     	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
     	solver.save("/content/gdrive/My Drive/model.pt")
+	solver.save('/content/gdrive/My Drive/weights/'+NAME+'.th')
 	#checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
     	#solver.load_state_dict(checkpoint['model_state_dict'])
     	#optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
