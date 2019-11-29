@@ -4,7 +4,7 @@ Code for the 1st place solution in [DeepGlobe Road Extraction Challenge](https:/
 # Requirements
 
 - Cuda 8.0
-- Python 2.7
+- Python 3.7
 - Pytorch 0.2.0
 - cv2
 
