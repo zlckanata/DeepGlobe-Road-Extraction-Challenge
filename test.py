@@ -138,7 +138,7 @@ source = 'dataset/test/'
 # source = 'dataset/valid/'
 val = os.listdir(source)
 solver = TTAFrame(DinkNet34)
-solver.load('/content/gdrive/My\ Drive/model.pt')
+solver.load('/content/gdrive/My Drive/model.pt')
 tic = time()
 target = 'submits/log01_dink34/'
 os.mkdir(target)
