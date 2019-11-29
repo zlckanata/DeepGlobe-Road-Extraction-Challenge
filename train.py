@@ -68,7 +68,7 @@ for epoch in range(startt, total_epoch + 1):
     
     if(epoch % 1 == 0):
     	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
-	solver.save_full("/content/gdrive/My Drive/entire_model.pth")
+    	solver.save_full("/content/gdrive/My Drive/entire_model.pth")
     	#checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
     	#solver.load_state_dict(checkpoint['model_state_dict'])
     	#optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
