@@ -66,8 +66,9 @@ for epoch in range(startt, total_epoch + 1):
     print('train_loss:',train_epoch_loss)
     print('SHAPE:',SHAPE)
     
-    if(epoch % 2 == 0):
+    if(epoch % 1 == 0):
     	solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
+	solver.save_full("/content/gdrive/My Drive/entire_model.pth")
     	#checkpoint = torch.load("/content/gdrive/My Drive/model.pt")
     	#solver.load_state_dict(checkpoint['model_state_dict'])
     	#optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
@@ -80,6 +81,7 @@ for epoch in range(startt, total_epoch + 1):
         no_optim = 0
         train_epoch_best_loss = train_epoch_loss
         solver.save('weights/'+NAME+'.th', epoch, train_epoch_loss)
+	solver.save_full("/content/gdrive/My Drive/entire_model.pth")
     if no_optim > 6:
         print('early stop at %d epoch' % epoch, file = mylog)
         print('early stop at %d epoch' % epoch)
