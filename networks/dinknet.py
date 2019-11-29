@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable
 from torchvision import models
+from networks.non_local import NLBlockND
 import torch.nn.functional as F
 
 from functools import partial
