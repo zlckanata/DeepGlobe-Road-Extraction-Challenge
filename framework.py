@@ -65,8 +65,8 @@ class MyFrame():
         self.optimizer.step()
         return loss.data
     
-    def save(self, path):
-        torch.save(self.net.state_dict(), path)    
+    def save_full(self, path):
+        torch.save(self.net, path)    
 	
     def save(self, path, epoch,losss):
         torch.save({
