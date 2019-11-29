@@ -134,17 +134,18 @@ class TTAFrame():
     def load(self, path):
         self.net.load_state_dict(torch.load(path))
         
-#source = 'dataset/test/'
-source = 'dataset/valid/'
+source = 'dataset/test/'
+# source = 'dataset/valid/'
 val = os.listdir(source)
 solver = TTAFrame(DinkNet34)
-solver.load('weights/log01_dink34.th')
+torch.load("/content/gdrive/My Drive/entire_model.pth")
+# solver.load('weights/log01_dink34.th')
 tic = time()
-target = 'submits/log01_dink34/'
+target = "/content/gdrive/My Drive/submits/log01_dink34/"
 os.mkdir(target)
 for i,name in enumerate(val):
-    if i%10 == 0:
-        print i/10, '    ','%.2f'%(time()-tic)
+    if(i%10 == 0):
+        print(i/10, '    ','%.2f'%(time()-tic))
     mask = solver.test_one_img_from_path(source+name)
     mask[mask>4.0] = 255
     mask[mask<=4.0] = 0
