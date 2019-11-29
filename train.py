@@ -69,6 +69,7 @@ for epoch in range(startt, total_epoch + 1):
     if(epoch % 1 == 0):
         solver.save("/content/gdrive/My Drive/model.pt", epoch,train_epoch_loss)
         solver.save_full("/content/gdrive/My Drive/entire_model.pth")
+        print('saving \n')
         
     if train_epoch_loss >= train_epoch_best_loss:
         no_optim += 1
@@ -76,7 +77,7 @@ for epoch in range(startt, total_epoch + 1):
         no_optim = 0
         train_epoch_best_loss = train_epoch_loss
         solver.save('weights/'+NAME+'.th', epoch, train_epoch_loss)
-	solver.save_full("/content/gdrive/My Drive/entire_model.pth")
+        solver.save_full("/content/gdrive/My Drive/entire_model.pth")
     if no_optim > 6:
         print('early stop at %d epoch' % epoch, file = mylog)
         print('early stop at %d epoch' % epoch)
