@@ -82,7 +82,7 @@ for epoch in range(startt, total_epoch + 1):
     else:
         no_optim = 0
         train_epoch_best_loss = train_epoch_loss
-        solver.save('weights/'+NAME+'.th', epoch, train_epoch_loss)
+        solver.save('weights/'+NAME+'.th')
     if no_optim > 6:
         print('early stop at %d epoch' % epoch, file = mylog)
         print('early stop at %d epoch' % epoch)
