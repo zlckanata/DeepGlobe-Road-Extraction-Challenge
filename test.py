@@ -133,7 +133,8 @@ class TTAFrame():
 
     def load(self, path):
         checkpoint = torch.load(path)
-        self.net.load(checkpoint)
+        checkpoint = checkpoint['model_state_dict']
+        self.net.load_state_dict(checkpoint)
 
 source = 'dataset/test/'
 # source = 'dataset/valid/'
