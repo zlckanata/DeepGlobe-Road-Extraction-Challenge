@@ -138,7 +138,8 @@ class TTAFrame():
         self.net.load_state_dict(checkpoint['model_state_dict'])
 
 # source = 'dataset/test/'
-source = 'dataset/valid/'
+source = 'dataset/train/'
+# source = 'dataset/valid/'
 val = os.listdir(source)
 solver = TTAFrame(DinkNet34)
 solver.load("/content/gdrive/My Drive/model.pt")
