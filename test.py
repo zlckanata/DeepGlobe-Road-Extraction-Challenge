@@ -140,7 +140,7 @@ source = 'dataset/test/'
 # source = 'dataset/valid/'
 val = os.listdir(source)
 solver = TTAFrame(DinkNet34)
-solver.load("/content/gdrive/My Drive/entire_model.pth")
+solver.load("/content/gdrive/My Drive/model.pt")
 # solver.load('weights/log01_dink34.th')
 tic = time()
 target = "/content/gdrive/My Drive/submits/log01_dink34/"
