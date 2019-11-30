@@ -91,7 +91,7 @@ class TTAFrame():
 
     def test_one_img_from_path_2(self, path):
         img = cv2.imread(path)#.transpose(2,0,1)[None]
-        print(img.shape)
+        print(img.shape())
         img90 = np.array(np.rot90(img))
         img1 = np.concatenate([img[None],img90[None]])
         img2 = np.array(img1)[:,::-1]
