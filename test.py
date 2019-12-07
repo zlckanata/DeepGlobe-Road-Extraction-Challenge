@@ -8,6 +8,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+import sys
 
 from time import time
 
@@ -137,9 +138,11 @@ class TTAFrame():
         # checkpoint = checkpoint['model_state_dict']
         self.net.load_state_dict(checkpoint['model_state_dict'])
 
+argumentList = sys.argv
+
 # source = 'dataset/test/'
 # source = 'dataset/train/'
-source = 'dataset/valid/'
+source = 'dataset/' + argumentList[1] '/'
 val = os.listdir(source)
 solver = TTAFrame(DinkNet34)
 solver.load("/content/gdrive/My Drive/model.pt")
